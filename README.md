@@ -46,13 +46,15 @@ If your environment doesn't ship with WebSearch, you can wire up a third-party s
 
 | MCP | Best for | Link |
 |---|---|---|
-| **Firecrawl** | Full-page scraping + search, handles JS-rendered pages | [firecrawl.dev](https://firecrawl.dev) |
+| **Firecrawl** | Full-page scraping + search, handles JS-rendered pages | [firecrawl.link/heyiamnick](https://firecrawl.link/heyiamnick) |
 | **Brave Search** | Free tier, privacy-focused, good for general queries | [brave.com/search/api](https://brave.com/search/api/) |
 | **Serper** | Google results via API, fastest for SERP-style research | [serper.dev](https://serper.dev) |
 | **Tavily** | Purpose-built for AI agents, returns clean JSON | [tavily.com](https://tavily.com) |
 | **Exa** | Neural search, great for finding niche/expert content | [exa.ai](https://exa.ai) |
 
 Install any one of these as an MCP server, add it to your Claude config, restart, and the skill will pick it up automatically on the next run. Firecrawl is the heaviest lift but gives you the best data quality; Brave is the cheapest starting point.
+
+> *The Firecrawl link above is my affiliate — if you sign up through it, I get a small commission at no cost to you. It's the one I actually use in my own pipeline.*
 
 **Quick sanity test after install:** open Claude, load the skill, and ask:
 > *Use content-research-lite. Confirm today's date with a live search, then run Step 1 for niche "AI tools for freelancers" and audience "freelance designers making $3k–$10k/mo".*
