@@ -24,6 +24,43 @@ More skills dropping regularly — follow [@heyiamnick_ on Twitter](https://x.co
 
 ---
 
+## ⚠️ Important — Which Claude environment should you run this in?
+
+The `content-research-lite` skill depends on **live web search**. If Claude can't reach the internet in real time, the entire workflow collapses into the same training-data slop it's designed to prevent. Here's what actually works:
+
+| Environment | Live search | Recommended? |
+|---|---|---|
+| **Claude Cowork** | ✅ Built in | **Yes — easiest path** |
+| **Claude Desktop** (with search enabled in settings) | ✅ Built in | Yes |
+| **Claude.ai** (web, Pro/Max plan) | ✅ Built in | Yes |
+| **Claude Code** | ⚠️ WebSearch is a deferred tool — Claude has to fetch it before running any step | Works, but needs one extra step |
+| **Claude API (raw)** | ❌ No search unless you wire it yourself | Not recommended for this skill |
+
+**If you're on Claude Code:** the skill's Step 0 tells Claude to fetch WebSearch before running. If Claude skips that and starts searching anyway, stop it and say *"Fetch WebSearch first, then restart Step 0."* Once fetched, the workflow runs normally.
+
+**If you're on Claude Cowork or Desktop:** just install the skill and run it. Search is already there.
+
+### Don't have live search? Give Claude superpowers with a search MCP
+
+If your environment doesn't ship with WebSearch, you can wire up a third-party search MCP and Claude will use it like a native tool. Any of these work with this skill:
+
+| MCP | Best for | Link |
+|---|---|---|
+| **Firecrawl** | Full-page scraping + search, handles JS-rendered pages | [firecrawl.dev](https://firecrawl.dev) |
+| **Brave Search** | Free tier, privacy-focused, good for general queries | [brave.com/search/api](https://brave.com/search/api/) |
+| **Serper** | Google results via API, fastest for SERP-style research | [serper.dev](https://serper.dev) |
+| **Tavily** | Purpose-built for AI agents, returns clean JSON | [tavily.com](https://tavily.com) |
+| **Exa** | Neural search, great for finding niche/expert content | [exa.ai](https://exa.ai) |
+
+Install any one of these as an MCP server, add it to your Claude config, restart, and the skill will pick it up automatically on the next run. Firecrawl is the heaviest lift but gives you the best data quality; Brave is the cheapest starting point.
+
+**Quick sanity test after install:** open Claude, load the skill, and ask:
+> *Use content-research-lite. Confirm today's date with a live search, then run Step 1 for niche "AI tools for freelancers" and audience "freelance designers making $3k–$10k/mo".*
+
+If Claude echoes back the correct real-world date in the first reply, search is working. If it hesitates or uses a training-cutoff date, search is not reachable and the skill will not work in that environment.
+
+---
+
 ## Quick install (recommended)
 
 Uses [`degit`](https://github.com/Rich-Harris/degit) to grab a single skill folder without cloning the full repo. One command, any OS with Node installed:

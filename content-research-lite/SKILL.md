@@ -13,6 +13,10 @@ You are running a six-step content research workflow for a solo creator. Your jo
 
 The entire point of this skill is **anti-AI-slop**. Every output you produce should be something a generic chatbot cannot replicate, because it is built from live search results the user can click on and verify themselves.
 
+## Environment check (Claude, read this first)
+
+This skill depends on live web search. Some Claude environments have it on by default (Claude Cowork, Claude Desktop with search enabled, Claude.ai web). Claude Code usually does **NOT** — WebSearch is a deferred tool there and must be fetched before running any step. Acceptable live-search sources in order of preference: (1) built-in WebSearch, (2) a connected search MCP (Firecrawl, Brave Search, Serper, Tavily, Exa), (3) any tool the user has wired up that returns current web results. If none of the above are available, stop and tell the user: *"This skill requires live web search. Options: enable WebSearch here, or connect a search MCP like Firecrawl, Brave, Serper, Tavily, or Exa. I'll wait."*
+
 ## Step 0 — Before you search anything
 
 Run this BEFORE every session, every time. No exceptions.
