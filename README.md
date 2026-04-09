@@ -18,7 +18,7 @@ Skills are plain markdown. No code, no plugins, no API keys. You can read them, 
 
 | Skill | What it does | Install |
 |---|---|---|
-| [`content-research-lite`](./content-research-lite) | 6-prompt research workflow that turns Claude into a junior content researcher. Cuts research time from 4 hours to 30 minutes per post. | See below |
+| [`content-research-lite`](./skills/content-research-lite) | 6-prompt research workflow that turns Claude into a junior content researcher. Cuts research time from 4 hours to 30 minutes per post. | See below |
 
 More skills dropping regularly — follow [@heyiamnick_ on Twitter](https://x.com/heyiamnick_) for updates.
 
@@ -69,7 +69,7 @@ Uses [`degit`](https://github.com/Rich-Harris/degit) to grab a single skill fold
 
 ```bash
 # Install content-research-lite into your personal Claude skills folder
-npx degit heyiamnick/pixelnthingsz/content-research-lite ~/.claude/skills/content-research-lite
+npx degit heyiamnick/pixelnthingsz/skills/content-research-lite ~/.claude/skills/content-research-lite
 ```
 
 Then restart Claude Code. Type `/skills` to verify it's loaded.
@@ -83,18 +83,18 @@ If you don't have Node, use git instead:
 git clone https://github.com/heyiamnick/pixelnthingsz.git /tmp/pixelnthingsz
 
 # Copy just the skill you want
-cp -r /tmp/pixelnthingsz/content-research-lite ~/.claude/skills/
+cp -r /tmp/pixelnthingsz/skills/content-research-lite ~/.claude/skills/
 ```
 
 ## Windows (PowerShell)
 
 ```powershell
 # Using degit
-npx degit heyiamnick/pixelnthingsz/content-research-lite "$env:USERPROFILE\.claude\skills\content-research-lite"
+npx degit heyiamnick/pixelnthingsz/skills/content-research-lite "$env:USERPROFILE\.claude\skills\content-research-lite"
 
 # Or using git
 git clone https://github.com/heyiamnick/pixelnthingsz.git $env:TEMP\pixelnthingsz
-Copy-Item -Path "$env:TEMP\pixelnthingsz\content-research-lite" -Destination "$env:USERPROFILE\.claude\skills\" -Recurse
+Copy-Item -Path "$env:TEMP\pixelnthingsz\skills\content-research-lite" -Destination "$env:USERPROFILE\.claude\skills\" -Recurse
 ```
 
 ---
